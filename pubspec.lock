@@ -53,10 +53,10 @@ packages:
     dependency: "direct main"
     description:
       name: flame
-      sha256: baafe5c38075b60577db05e0421c12941695b246547d9aca95166def3f29e57f
+      sha256: "3725f1ab4ca07f77955c2b1c21d02906646ec0be95f7bc141854a529704fda9d"
       url: "https://pub.dev"
     source: hosted
-    version: "1.21.0"
+    version: "1.33.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -135,10 +135,10 @@ packages:
     dependency: transitive
     description:
       name: ordered_set
-      sha256: fc861bb51fc863cd3e0718e21768af9586e0d5022b91a0fd4437636456cdb7d0
+      sha256: d6c1d053a533e84931a388cbf03f1ad21a0543bf06c7a281859d3ffacd8e15f2
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.1"
+    version: "8.0.0"
   path:
     dependency: transitive
     description:
@@ -217,5 +217,5 @@ packages:
     source: hosted
     version: "14.2.5"
 sdks:
-  dart: ">=3.8.0-0 <4.0.0"
-  flutter: ">=3.22.0"
+  dart: ">=3.8.0 <4.0.0"
+  flutter: ">=3.32.0"
