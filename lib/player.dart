@@ -3,6 +3,8 @@ import 'package:flame/components.dart';
 import 'main.dart';
 
 class Player extends SpriteComponent with HasGameReference<FlameDemoGame> {
+  final JoystickComponent joystick;
+  Player({required this.joystick});
   late Vector2 moveTarget = Vector2.zero();
 
   @override
@@ -19,10 +21,10 @@ class Player extends SpriteComponent with HasGameReference<FlameDemoGame> {
   void update(double dt) {
     super.update(dt);
 
-    // Only move if we're not at the target yet
-    if (position.distanceTo(moveTarget) > 1) {
-      Vector2 direction = (moveTarget - position).normalized();
-      position.add(direction * 100 * dt); // 100 = speed in pixels/second
+    // Only move if joystick is being touched
+    if (!joystick.delta.isZero()) {
+      position.add(joystick.relativeDelta * 300 * dt);
+      angle = joystick.delta.screenAngle();
     }
   }
 
