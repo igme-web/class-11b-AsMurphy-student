@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flame/game.dart';
-import 'player.dart';
+import 'player.dart';  // Add this import at the top
 
 void main() {
-  runApp(const MainApp());
+  runApp(
+    GameWidget(
+      game: FlameDemoGame(),
+    )
+  );
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
+class FlameDemoGame extends FlameGame {
+  late Player player;  // Declare the player variable
+  
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
+  Future<void> onLoad() async {
+    await images.loadAll(["player.png"]);
+    
+    player = Player();  // Create the player
+    add(player);        // Add it to the game (makes it visible!)
   }
 }
