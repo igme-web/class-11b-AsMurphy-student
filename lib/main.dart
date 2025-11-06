@@ -11,7 +11,7 @@ void main() {
   );
 }
 
-class FlameDemoGame extends FlameGame with PanDetector {
+class FlameDemoGame extends FlameGame with TapCallbacks {
   late Player player;  // Declare the player variable
   
   @override
@@ -22,8 +22,8 @@ class FlameDemoGame extends FlameGame with PanDetector {
     add(player);        // Add it to the game (makes it visible!)
   }
 
-  @override 
-  void onPanUpdate(DragUpdateInfo info) {
-    player.move(info.delta.global);
+  @override
+  void onTapUp(TapUpEvent event) {
+    player.moveTo(event.localPosition);
   }
 }
