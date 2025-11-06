@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flame/game.dart';
 import 'player.dart';  // Add this import at the top
+import 'package:flame/events.dart';
 
 void main() {
   runApp(
@@ -10,7 +11,7 @@ void main() {
   );
 }
 
-class FlameDemoGame extends FlameGame {
+class FlameDemoGame extends FlameGame with PanDetector {
   late Player player;  // Declare the player variable
   
   @override
@@ -19,5 +20,10 @@ class FlameDemoGame extends FlameGame {
     
     player = Player();  // Create the player
     add(player);        // Add it to the game (makes it visible!)
+  }
+
+  @override 
+  void onPanUpdate(DragUpdateInfo info) {
+    player.move(info.delta.global);
   }
 }

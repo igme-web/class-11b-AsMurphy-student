@@ -17,4 +17,8 @@ class Player extends SpriteComponent with HasGameReference<FlameDemoGame> {
     super.update(dt);
     // We'll use this later for movement logic
   }
+
+  void move(Vector2 delta) {
+    position.add(delta);
+  }
 }
